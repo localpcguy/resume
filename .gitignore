@@ -1,4 +1,5 @@
 node_modules/
+dst/
 dist/
 bower_components/
 .idea
