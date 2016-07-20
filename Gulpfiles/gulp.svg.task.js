@@ -10,7 +10,7 @@ var svgSprite = require('gulp-svg-sprite');
 module.exports = function(gulp, $, config) {
 
 	var _filesToProcess = config.files || config.appFiles.svgs;
-	var _outputPath = config.task.outputPath || config.paths.svgs.dest;
+	var _outputPath = config.task && config.task.outputPath || config.paths.svgs.dest;
 	var _svgSpriteConfig = {
 		mode: {
 			css: false,

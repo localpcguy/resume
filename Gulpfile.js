@@ -2,7 +2,7 @@
 
 // Requires & plugins
 var gulp         = require('gulp');
-var config       = require('./gulp.config.js');
+var config       = require('./Gulpfiles/gulp.config.js');
 
 // Global plugins
 var plugins = {
@@ -15,6 +15,7 @@ var plugins = {
 };
 
 // use "gulp --prod" to trigger production/build mode from commandline
+config.options = {};
 config.options = {
 	isProduction: config.options.isProduction || false,
 	sassStyle: config.options.sassStyle || 'expanded',
@@ -65,14 +66,14 @@ gulp.task('lint', getTask('lint'));
 gulp.task('scripts', getTask('javascript'));
 
 // Image Compression Task(s)
-gulp.task('imagemin', getTask('imagemin'));
+gulp.task('imagemin', getTask('image'));
 
 // Create SVG Sprite
 gulp.task('spriteSVGs', getTask('svg'));
 
 // Watch Task(s)
 gulp.task('webserver', getTask('webserver'));
-gulp.task('webserver:https', getTask('webserver'), { https: true });
+gulp.task('webserver:https', getTask('webserver', { https: true }));
 
 // Watch Task(s)
 gulp.task('watch', getTask('watch'));

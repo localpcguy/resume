@@ -10,11 +10,11 @@ var uglify       = require('gulp-uglify');
 // }
 
 module.exports = function(gulp, $, config) {
-	var _filesToProcess = config.task.files || config.appFiles.siteScripts;
-	var _outputPath = config.task.outputPath || config.paths.scripts.dest;
+	var _filesToProcess = config.task && config.task.files || config.appFiles.siteScripts;
+	var _outputPath = config.task && config.task.outputPath || config.paths.scripts.dest;
 	var _outputSourcemap = true;
 
-	if (config.task.outputSourceMap === false || config.options.sourceMap === false) {
+	if (config.task && (config.task.outputSourceMap === false || config.options.sourceMap === false)) {
 		_outputSourcemap = false;
 	}
 

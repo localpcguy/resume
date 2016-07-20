@@ -11,10 +11,10 @@ var autoprefixer = require('gulp-autoprefixer');
 
 module.exports = function(gulp, $, config) {
 	var _filesToProcess = config.files || config.appFiles.styles;
-	var _outputPath = config.task.outputPath || config.paths.styles.dest;
+	var _outputPath = config.task && config.task.outputPath || config.paths.styles.dest;
 	var _outputSourcemap = true;
 
-	if (config.task.outputSourceMap === false || config.options.sourceMap === false) {
+	if (config.task && (config.task.outputSourceMap === false || config.options.sourceMap === false)) {
 		_outputSourcemap = false;
 	}
 

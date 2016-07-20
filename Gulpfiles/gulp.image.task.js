@@ -15,7 +15,7 @@ var imagemin     = require('gulp-imagemin');
 
 module.exports = function(gulp, $, config) {
 	var _filesToProcess = config.files || config.appFiles.styles;
-	var _outputPath = config.task.outputPath || config.paths.styles.dest;
+	var _outputPath = config.task && config.task.outputPath || config.paths.styles.dest;
 
 	// Image minification and compression
 	return function() {

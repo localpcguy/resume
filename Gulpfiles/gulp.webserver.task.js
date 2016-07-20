@@ -9,7 +9,7 @@ var webserver = require('gulp-webserver');
 // }
 
 module.exports = function(gulp, $, config) {
-	var _directory = config.task.directory || config.basePaths.dest;
+	var _directory = config.task && config.task.directory || config.basePaths.dest;
 	var _isHttps = config.task && config.task.https;
 	var _port = $.gutil.env.port || _isHttps ? 8443 : 8000;
 
@@ -25,7 +25,7 @@ module.exports = function(gulp, $, config) {
 				directoryListing: false,
 				fallback: 'index.html',
 				host: '0.0.0.0',
-				livereload: true,
+				livereload: !_isHttps,
 				open: false,
 				port: _port,
 				https: _isHttps
